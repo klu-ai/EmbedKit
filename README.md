@@ -54,6 +54,10 @@ EmbedKit can be easily integrated into your Swift projects using the Swift Packa
 
 **Using Xcode:**
 
+```md
+https://github.com/klu-ai/EmbedKit.git
+```
+
 1.  Open your Xcode project.
 2.  Navigate to `File` in the menu bar, then select `Add Packages...`.
 3.  In the search bar, enter the repository URL: `https://github.com/klu-ai/EmbedKit.git` and select the `main` branch.
