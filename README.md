@@ -5,9 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platforms: macOS | iOS](https://img.shields.io/badge/Platforms-macOS%20%7C%20iOS-blueviolet)](https://swift.org/package-manager/)
 
-EmbedKit is a Swift package designed to bring on-device vector database capabilities to Apple platforms, including macOS and iOS. It empowers developers to integrate sophisticated features like semantic search, recommendation engines, and similarity analysis directly within their applications. By operating locally on the device, EmbedKit prioritizes user data privacy and ensures high performance without the need for external services.
+**EmbedKit** is a Swift package designed to bring on-device vector database capabilities to Apple platforms, including macOS and iOS. It empowers developers to integrate sophisticated features like semantic search, recommendation engines, and similarity analysis directly within their applications. By operating locally on the device, EmbedKit prioritizes user data privacy and ensures high performance without the need for external services.
 
-Built upon Apple's MLX framework and MLXEmbedders, EmbedKit simplifies the process of generating embeddings and conducting rapid similarity searches on-device. This package is ideally suited for applications that require embedded search functionalities, intelligent content discovery, or any feature that can benefit from understanding textual relationships. EmbedKit provides a comprehensive set of tools for effectively and seamlessly integrating these advanced capabilities into your Swift projects.
+Built upon Apple's [MLX Swift framework](https://github.com/ml-explore/mlx-swift) and [MLXEmbedders](https://github.com/ml-explore/mlx-swift-examples/tree/main/Libraries/Embedders), EmbedKit simplifies the process of generating embeddings and conducting rapid similarity searches on-device. This package is ideally suited for applications that require embedded search functionalities, intelligent content discovery, or any feature that can benefit from understanding textual relationships. EmbedKit provides a comprehensive set of tools for effectively and seamlessly integrating these advanced capabilities into your Swift projects.
 
 ## Key Features
 
