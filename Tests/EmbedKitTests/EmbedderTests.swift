@@ -1,7 +1,7 @@
 import XCTest
 @testable import EmbedKit
 
-@available(macOS 14.0, iOS 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
+@available(macOS 14.0, iOS 17.0, *)
 final class EmbedderTests: XCTestCase {
     // Placeholder test for Embedder
     func testPlaceholder() {

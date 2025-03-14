@@ -2,7 +2,7 @@ import Foundation
 import Accelerate
 import MLXEmbedders
 
-@available(macOS 14.0, iOS 17.0, tvOS 17.0, visionOS 1.0, watchOS 10.0, *)
+@available(macOS 14.0, iOS 17.0, *)
 public class EmbedKit: EmbedProtocol {
     private let config: EmbedConfig
     private let embedder: Embedder

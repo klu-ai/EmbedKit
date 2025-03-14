@@ -6,6 +6,7 @@
 .swiftpm/
 README.md.bak
 READMEclaude.md
+.swiftpm/xcode/package.xcworkspace
 
 ## User settings
 xcuserdata/
