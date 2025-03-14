@@ -22,6 +22,8 @@ Built upon Apple's [MLX Swift framework](https://github.com/ml-explore/mlx-swift
 
 ## Models Supported
 
+The default embedding model is `Nomic Text v1.5`. This model offers a balance between performance and quality, matching OpenAI's `text-embedding-3-small` performance, making it suitable for a wide range of applications
+
 *   **BGE Base:** 768-dimensional embeddings
 *   **BGE Large:** 1024-dimensional embeddings
 *   **BGE M3:** 1024-dimensional embeddings
