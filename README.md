@@ -19,8 +19,6 @@ Built upon Apple's MLX framework and MLXEmbedders, EmbedKit simplifies the proce
 *   **Extensive Customization Options:** Offers a range of configuration settings to fine-tune search behavior, including adjustable similarity thresholds, result limits, and hybrid search weights.
 *   **Flexible Storage Configuration:** Allows users to specify a custom directory for database files, providing control over data management and organization.
 *   **Command-Line Interface (CLI):** Includes `EmbedCLI`, a command-line tool for database administration, testing, and integration into development workflows and automated scripts.
-*   **Broad Model Compatibility:** Integrates with MLXEmbedders, providing access to a wide selection of pre-trained embedding models to accommodate various language requirements and performance needs.
-*   **Modular Design:** Features a clear and modular architecture, enhancing maintainability, scalability, and developer understanding.
 
 ## Models Supported
 
