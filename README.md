@@ -5,22 +5,41 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Platforms: macOS | iOS | tvOS | visionOS | watchOS](https://img.shields.io/badge/Platforms-macOS%20%7C%20iOS%20%7C%20tvOS%20%7C%20visionOS%20%7C%20watchOS-blueviolet)](https://swift.org/package-manager/)
 
-EmbedKit is a Swift package designed to provide on-device vector database capabilities for Apple platforms, including macOS, iOS, tvOS, visionOS, and watchOS. It enables developers to integrate functionalities such as semantic search, recommendation systems, and similarity analysis directly into their applications. By operating locally on the device, EmbedKit prioritizes user privacy and ensures efficient performance.
+EmbedKit is a Swift package designed to bring on-device vector database capabilities to Apple platforms, including macOS, iOS, tvOS, visionOS, and watchOS. It empowers developers to integrate sophisticated features like semantic search, recommendation engines, and similarity analysis directly within their applications. By operating locally on the device, EmbedKit prioritizes user data privacy and ensures high performance without the need for external services.
 
-Utilizing Apple's MLX framework and MLXEmbedders, EmbedKit facilitates the generation of embeddings and the execution of rapid similarity searches on-device. This package is suitable for applications that require embedded search functionalities, intelligent content discovery, or any feature that benefits from understanding textual similarity without reliance on external services. EmbedKit delivers a comprehensive set of tools for integrating these advanced capabilities into your Swift projects effectively and seamlessly.
+Built upon Apple's MLX framework and MLXEmbedders, EmbedKit simplifies the process of generating embeddings and conducting rapid similarity searches on-device. This package is ideally suited for applications that require embedded search functionalities, intelligent content discovery, or any feature that can benefit from understanding textual relationships. EmbedKit provides a comprehensive set of tools for effectively and seamlessly integrating these advanced capabilities into your Swift projects.
 
 ## Key Features
 
-*   **Privacy-Focused Local Operation:** Executes entirely on the device, ensuring user data privacy and minimizing latency by keeping vector embeddings and search operations local.
-*   **Optimized for Apple Silicon:** Built to leverage the performance of Apple silicon through the utilization of the MLX framework and MLXEmbedders.
-*   **Versatile Search Methods:** Supports vector similarity search for semantic understanding and BM25 keyword search for relevance-based retrieval. Hybrid search combines both methods for enhanced results.
-*   **Efficient Data Management:** Supports batch processing for rapid indexing of large datasets and efficient handling of real-time content updates.
-*   **Persistent Data Storage:** Manages database persistence automatically, ensuring data is saved and loaded across application sessions for consistent user experience.
+*   **Privacy-Focused Local Operation:** Operates entirely on the device, ensuring user data privacy and reducing latency by keeping vector embeddings and search operations local.
+*   **Optimized for Apple Silicon:** Engineered to harness the power of Apple silicon using the MLX framework and MLXEmbedders for efficient computation.
+*   **Versatile Search Methods:** Supports vector similarity search for semantic understanding and BM25 keyword search for relevance-based retrieval. Hybrid search combines both methods for improved search accuracy.
+*   **Efficient Data Management:** Supports batch processing for quick indexing of large datasets and efficient management of real-time content updates.
+*   **Persistent Data Storage:** Automatically handles database persistence, ensuring data is saved and consistently available across application sessions.
 *   **Extensive Customization Options:** Offers a range of configuration settings to fine-tune search behavior, including adjustable similarity thresholds, result limits, and hybrid search weights.
-*   **Flexible Storage Configuration:** Allows specification of a custom directory for database files, providing control over data management and organization.
+*   **Flexible Storage Configuration:** Allows users to specify a custom directory for database files, providing control over data management and organization.
 *   **Command-Line Interface (CLI):** Includes `EmbedCLI`, a command-line tool for database administration, testing, and integration into development workflows and automated scripts.
-*   **Broad Model Compatibility:** Integrates with MLXEmbedders, providing access to a diverse selection of pre-trained embedding models to suit various language requirements and performance needs.
+*   **Broad Model Compatibility:** Integrates with MLXEmbedders, providing access to a wide selection of pre-trained embedding models to accommodate various language requirements and performance needs.
 *   **Modular Design:** Features a clear and modular architecture, enhancing maintainability, scalability, and developer understanding.
+
+## Models Supported
+
+*   **BGE Base:** 768-dimensional embeddings
+*   **BGE Large:** 1024-dimensional embeddings
+*   **BGE M3:** 1024-dimensional embeddings
+*   **BGE Micro:** 384-dimensional embeddings
+*   **BGE Small:** 384-dimensional embeddings
+*   **GTE Tiny:** 512-dimensional embeddings
+*   **MiniLM L12:** 384-dimensional embeddings
+*   **MiniLM L6:** 384-dimensional embeddings
+*   **MixedBread Large:** 1024-dimensional embeddings
+*   **Multilingual E5 Small:** 384-dimensional embeddings
+*   **Nomic Text v1:** 768-dimensional embeddings
+*   **Nomic Text v1.5:** 768-dimensional embeddings
+*   **Snowflake LG:** 1024-dimensional embeddings
+*   **Snowflake XS:** 384-dimensional embeddings
+
+For detailed implementation information on supported models, please refer to `Sources/EmbedKit/SupportedModel.swift`. Model support is dependent on the MLX Embedders framework.
 
 ## Supported Platforms
 
@@ -32,7 +51,7 @@ Utilizing Apple's MLX framework and MLXEmbedders, EmbedKit facilitates the gener
 
 ## Installation
 
-EmbedKit can be integrated into your Swift projects using the Swift Package Manager.
+EmbedKit can be easily integrated into your Swift projects using the Swift Package Manager.
 
 ### Swift Package Manager
 
@@ -41,11 +60,11 @@ EmbedKit can be integrated into your Swift projects using the Swift Package Mana
 1.  Open your Xcode project.
 2.  Navigate to `File` in the menu bar, then select `Add Packages...`.
 3.  In the search bar, enter the repository URL: `https://github.com/klu-ai/EmbedKit.git` and select the `main` branch.
-4.  Select the `EmbedKit` package and ensure it is added to the appropriate targets in your project.
+4.  Choose the `EmbedKit` package and ensure it is added to the appropriate targets within your project.
 
 **Using `Package.swift`:**
 
-To incorporate EmbedKit into your Swift Package Manager project, add the following dependency to your `Package.swift` file:
+To include EmbedKit in your Swift Package Manager project, add the following dependency to your `Package.swift` file:
 
 ```swift
 dependencies: [
@@ -53,23 +72,23 @@ dependencies: [
 ],
 ```
 
-### Dependencies
+## Dependencies
 
-EmbedKit utilizes the following Swift packages, which are automatically managed by Swift Package Manager:
+EmbedKit utilizes the following Swift packages, which are automatically handled by Swift Package Manager:
 
-*   **[swift-argument-parser](https://github.com/apple/swift-argument-parser.git):** Provides the foundation for the command-line interface (`EmbedCLI`), facilitating the creation of a user-friendly and robust command parsing system.
-*   **[mlx-swift-examples](https://github.com/ml-explore/mlx-swift-examples/):** Offers a collection of examples using MLX and includes `MLXEmbedders`, the framework used by EmbedKit for generating text embeddings.
-*   **[mlx](https://github.com/ml-explore/mlx-swift):** (Transitive dependency) Apple's Machine Learning eXchange framework, serving as the core numerical computation engine for EmbedKit, optimized for Apple silicon.
+*   **[swift-argument-parser](https://github.com/apple/swift-argument-parser.git):**  Provides the foundation for the command-line interface (`EmbedCLI`), offering a user-friendly and robust system for command parsing.
+*   **[mlx-swift-examples](https://github.com/ml-explore/mlx-swift-examples/):**  Offers a collection of examples using MLX and includes `MLXEmbedders`, the framework utilized by EmbedKit for generating text embeddings.
+*   **[mlx](https://github.com/ml-explore/mlx-swift):** (Transitive dependency) Apple's Machine Learning eXchange framework, serving as the core computational engine for EmbedKit, optimized for Apple silicon.
 
 ## Usage
 
-The following examples demonstrate how to use EmbedKit to add intelligent features to your Swift applications.
+The following examples demonstrate how to use EmbedKit to integrate intelligent features into your Swift applications.
 
 ### Basic Setup
 
 1.  **Import EmbedKit:**
 
-    Import the `EmbedKit` module at the beginning of your Swift file:
+    Begin by importing the `EmbedKit` module at the start of your Swift file:
 
     ```swift
     import EmbedKit
@@ -77,7 +96,7 @@ The following examples demonstrate how to use EmbedKit to add intelligent featur
 
 2.  **Initialize EmbedKit:**
 
-    Instantiate `EmbedKit`, specifying a database name, vector dimension, and embedding model configuration.
+    Create an instance of `EmbedKit`, specifying a database name, vector dimension, and embedding model configuration.
 
     ```swift
     import Foundation
@@ -108,7 +127,7 @@ The following examples demonstrate how to use EmbedKit to add intelligent featur
 
 4.  **Perform Semantic Search:**
 
-    Execute a semantic search to find documents similar to a given query.
+    Execute a semantic search to find documents that are semantically similar to a given query.
 
     ```swift
     let searchQuery = "swift vector database"
@@ -189,11 +208,11 @@ The following examples demonstrate how to use EmbedKit to add intelligent featur
     print("EmbedKit initialized with '\(SupportedModel.bge_small)' model.")
     ```
 
-    Refer to `Sources/EmbedKit/SupportedModel.swift` for a comprehensive list of supported models and their specifications.
+    For a comprehensive list of supported models and their specifications, please refer to `Sources/EmbedKit/SupportedModel.swift`.
 
 ## Command Line Tool (EmbedCLI)
 
-EmbedKit includes `EmbedCLI`, a command-line interface for database management and automation. After building the `EmbedCLI` target in Xcode or using `swift build`, the `embed` command is available in the `.build/debug` or `.build/release` directory. For convenient access, add this directory to your system's `PATH` environment variable.
+EmbedKit includes `EmbedCLI`, a command-line interface designed for database management and automation. After building the `EmbedCLI` target in Xcode or using `swift build`, the `embed` command will be available in the `.build/debug` or `.build/release` directory. For convenient access, add this directory to your system's `PATH` environment variable.
 
 **Available Commands:**
 
@@ -230,13 +249,13 @@ embed <command> [options]
 
 ## Architecture Overview
 
-EmbedKit is designed with a modular architecture to promote clarity and maintainability. Key components include:
+EmbedKit is built with a modular architecture to ensure clarity and maintainability. Key components include:
 
-*   **`EmbedKit` (Class):** The primary class providing the API for interacting with the vector database. It manages core operations including embedding generation, storage, and search functionalities. Implements the `EmbedProtocol`.
+*   **`EmbedKit` (Class):** The primary class that provides the API for interacting with the vector database. It manages core operations including embedding generation, storage, and search functionalities, and implements the `EmbedProtocol`.
 *   **`Document` (Struct):** Represents a document within the database, encapsulating its unique ID, text content, vector embedding, and creation timestamp.
-*   **`Embedder` (Class):** Responsible for handling embedding generation using MLXEmbedders. Manages model loading and the process of generating embeddings from text.
+*   **`Embedder` (Class):** Responsible for managing embedding generation using MLXEmbedders. It handles model loading and the process of generating embeddings from text.
 *   **`Storage` (Protocol):** Defines the interface for data persistence, allowing for different storage mechanisms to be implemented.
-*   **`FileStorage` (Class):** An implementation of the `Storage` protocol using the file system and JSON files for persistent document storage.
+*   **`FileStorage` (Class):** An implementation of the `Storage` protocol that uses the file system and JSON files for persistent document storage.
 *   **`Config` (Struct):** Encapsulates configuration parameters for `EmbedKit`, including the database name, storage directory, vector dimension, and search settings.
 *   **`SearchResult` (Struct):** Represents a single search result, containing the document ID, text, similarity score, and creation date.
 *   **`Index` (Struct):** Provides BM25 keyword indexing and search capabilities, utilized for hybrid search strategies.
@@ -244,11 +263,11 @@ EmbedKit is designed with a modular architecture to promote clarity and maintain
 
 ## License
 
-EmbedKit is released under the **MIT License**. For complete license details, refer to the [LICENSE](LICENSE) file.
+EmbedKit is released under the **MIT License**. For complete license details, please refer to the [LICENSE](LICENSE) file.
 
 ## Contributing
 
-Contributions to EmbedKit are welcomed. To contribute, please fork the repository and submit a pull request with your proposed enhancements or bug fixes.
+Contributions to EmbedKit are highly encouraged. To contribute, please fork the repository and submit a pull request with your proposed enhancements or bug fixes.
 
 **Building and Testing:**
 
@@ -261,4 +280,4 @@ swift test
 
 For more advanced build options, execute `./build.sh --help` to view available flags.
 
-Thank you for exploring EmbedKit. We look forward to seeing how you use EmbedKit to build innovative on-device applications with semantic understanding and intelligent features.
+Thank you for exploring EmbedKit. We are excited to see how you utilize EmbedKit to develop innovative on-device applications with semantic understanding and intelligent features.

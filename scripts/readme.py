@@ -13,11 +13,10 @@ Key features:
 - Preserves existing README structure while updating content
 
 Usage:
-    python3 scripts/update_readme.py
+    python3 scripts/ureadme.py
 
 Requirements:
-    - google-generativeai package
-    - Git repository
+    - google-genai package (pip install google-genai)
     - GEMINI_API_KEY environment variable
 """
 
